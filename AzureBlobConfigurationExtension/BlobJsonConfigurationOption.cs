@@ -19,6 +19,10 @@ namespace Microsoft.Extensions.Configuration.AzureBlob
             {
                 throw new ArgumentNullException(nameof(blobUri));
             }
+            if (blobUri.OriginalString.Contains("devstoreaccount1"))
+            {
+                return "devstoreaccount1";
+            }
 
             var host = blobUri.Host;
             if (string.IsNullOrEmpty(host))
